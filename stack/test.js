@@ -21,15 +21,17 @@ class Stack {
     }
     this.size++;
   }
+
+  getTop() {
+    return this.top.val;
+  }
+
   pop() {
     if (this.size === 0) return null;
     const poppedNode = this.top;
     this.top = this.top.next;
-    return poppedNode.val;
-  }
-
-  getTop() {
-    return this.top.val;
+    this.size--;
+    return poppedNode;
   }
 }
 
@@ -37,6 +39,7 @@ const newStack = new Stack();
 newStack.push("a");
 newStack.push("b");
 newStack.push("c");
+
 console.log(newStack.top);
-console.log(newStack.pop());
+newStack.pop();
 console.log(newStack.top);
