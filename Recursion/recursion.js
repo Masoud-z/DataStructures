@@ -18,4 +18,16 @@ function sum(array) {
   return array[0] + sum(rest);
 }
 
-console.log(sum([1, 2, 3, 10]));
+// console.log(sum([1, 2, 3, 10]));
+
+function newSum(array) {
+  return _sum(array, 0);
+}
+
+function _sum(array, inx) {
+  if (array.length === inx) return 0;
+  return array[inx] + _sum(array, inx + 1);
+}
+
+
+console.log(newSum([1, 2, 3, 10]));
