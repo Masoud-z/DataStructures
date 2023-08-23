@@ -25,9 +25,20 @@ function newSum(array) {
 }
 
 function _sum(array, inx) {
-  if (array.length === inx) return 0;
+  if (inx === array.length) return 0;
   return array[inx] + _sum(array, inx + 1);
 }
 
+// console.log(newSum([1, 2, 3, 10]));
 
-console.log(newSum([1, 2, 3, 10]));
+const input = new Array(8500).fill(1);
+
+const slowStart = Date.now();
+console.log(sum(input));
+const slowEnd = Date.now();
+console.log(`n^2 finished at: ${slowEnd - slowStart}`);
+
+const fastStart = Date.now();
+console.log(newSum(input));
+const fastEnd = Date.now();
+console.log(`n finished at: ${fastEnd - fastStart}`);
